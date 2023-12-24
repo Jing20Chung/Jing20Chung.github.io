@@ -1,0 +1,61 @@
+---
+---
+// Text
+$section-headings-color: #18db4c !default;
+$body-text-color: #68a9cc !default;
+$body-link-color: #1e6bb8 !default;
+$blockquote-text-color: #819198 !default;
+
+// Headers
+$header-heading-color: #fff !default;
+$header-bg-color: #333333 !default;
+$header-bg-color-secondary: #155799 !default;
+@import "{{ site.theme }}";
+
+
+
+.wrapper {
+  padding: 40px 20px;
+  line-height: 1.5;
+}
+
+.container {
+  margin: 0 auto;
+  background: white;
+  padding: 0px;
+}
+
+.kartcontainer {
+  margin: 0 auto;
+  max-width: 2000px;
+  background: white;
+  padding: 20px;
+}
+
+.kartgamingimg {
+  margin: 5px;
+  background: white;
+  padding: 5px;
+  width:600px;
+}
+
+.kvrfimg {
+  margin: 5px;
+  background: white;
+  padding: 5px;
+  width:500px;
+}
+
+.btbimg {
+  margin: 5px;
+  background: white;
+  padding: 5px;
+  width:500px;
+}
+
+.mazeimg {
+  margin: 5px;
+  background: white;
+  padding: 5px;
+  width:500px;
+}
