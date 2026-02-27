@@ -1,0 +1,62 @@
+{% assign _vid = nil %}
+{% assign _yt = nil %}
+{% assign _img = nil %}
+{% assign has_media = false %}
+{% assign final_color = nil %}
+
+{% if include.video and include.video != "" %}{% assign _vid = include.video %}{% endif %}
+{% if include.youtube_id and include.youtube_id != "" %}{% assign _yt = include.youtube_id %}{% endif %}
+{% if include.image and include.image != "" %}{% assign _img = include.image %}{% endif %}
+{% if _vid or _yt or _img %}{% assign has_media = true %}{% endif %}
+
+{% case include.color %}
+  {% when 'red' %}{% assign final_color = 'var(--lego-red)' %}
+  {% when 'blue' %}{% assign final_color = 'var(--lego-blue)' %}
+  {% when 'yellow' %}{% assign final_color = 'var(--lego-yellow)' %}
+  {% when 'green' %}{% assign final_color = 'var(--lego-green)' %}
+  {% else %}{% assign final_color = include.color | default: 'var(--lego-red)' %}
+{% endcase %}
+
+<div class="lego-container {% if include.enable_scroll %}sticky-container{% endif %}"
+     style="--lego-w: {{ include.width | default: '100%' }}; 
+            --scroll-h: {{ include.scroll_height | default: '800px' }};
+            --lego-h: {{ include.height | default: 'auto' }};  
+            --lego-left: {{ include.left_offset | default: '0' }}; 
+            --lego-color: {{ final_color }};
+            --lego-align: {{ include.text_align | default: 'left' }};
+            --img-w: {{ include.img_width | default: '50%' }};">
+    
+    <div class="lego-wrapper {% if include.enable_scroll %}sticky-block{% endif %}">    
+        {% if include.link %}<a href="{{ include.link | relative_url }}" class="lego-link-wrapper">{% endif %}
+        
+        <div class="lego-brick {% if has_media %}has-media{% endif %} {% if include.reversed %}is-reversed{% endif %} {% if include.link %}is-clickable{% endif %}">
+            
+            {% if has_media %}
+            <div class="lego-media-section">
+                {% if _yt %}
+                    <div class="video-responsive">
+                        <iframe src="https://www.youtube.com/embed/{{ _yt }}?rel=0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                {% elsif _vid %}
+                    <video autoplay loop muted playsinline class="lego-media-element">
+                        <source src="{{ _vid | relative_url }}" type="video/mp4">
+                        <source src="{{ _vid | relative_url }}" type="video/quicktime">
+                    </video>
+                {% elsif _img %}
+                    <img src="{{ _img | relative_url }}" class="lego-media-element">
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="lego-content-section">
+                {% if include.title %}<h3 class="lego-title">{{ include.title }}</h3>{% endif %}
+                <div class="lego-body">
+                    {{ include.content | markdownify }}
+                </div>
+            </div>
+
+        </div>
+
+        {% if include.link %}</a>{% endif %}
+    </div>
+</div>

@@ -1,0 +1,177 @@
+<style>
+    :root {
+        --lego-red: #d0011b;
+        --lego-blue: #0055ad;
+        --lego-yellow: #ffcf00;
+        --lego-green: #237841;
+    }
+    
+    .sticky-container {
+        height: var(--scroll-h, 800px);
+    }
+    
+    .sticky-block {
+        position: -webkit-sticky;
+        position: sticky;
+        height: auto;
+        z-index: 10;
+        top: 15%;
+        opacity: 0;
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    
+    .sticky-block.fade-in { opacity: 1; transform: translateY(0); }
+    .sticky-block.fade-out { opacity: 0; transform: translateY(-20px); }
+    
+    .lego-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: var(--margin-bottom, 40px);
+        box-sizing: border-box;
+    }
+
+    .lego-container.sticky-container {
+        display: block !important;
+        height: var(--scroll-h, 800px);
+        position: relative;
+        width: 100%;
+    }
+    
+    .lego-wrapper {
+        width: var(--lego-w, 100%);
+        margin-left: var(--lego-left, 0);
+    }
+
+    .lego-wrapper.sticky-block {
+        width: var(--lego-w, 100%);
+        height: auto;
+    }
+
+    /*Special setting for lego-row*/
+    .lego-row .lego-container {
+        flex: 0 1 var(--lego-w);
+        width: auto;
+        margin-bottom: 0;
+    }
+    
+    .lego-row .lego-container .lego-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .lego-link-wrapper {
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        color: inherit;
+    }
+    
+    .lego-brick {
+        background-color: var(--lego-color, var(--lego-red));
+        padding: 40px;
+        border-radius: 24px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        min-height: var(--lego-h, auto); 
+        height: var(--lego-h, auto);
+        justify-content: center;
+        box-shadow: 
+            inset 5px 5px 0px rgba(255,255,255,0.3), 
+            inset -5px -5px 0px rgba(0,0,0,0.2), 
+            0 10px 20px rgba(0,0,0,0.15);
+    }
+    
+    .lego-brick::after {
+        content: "";
+        position: absolute;
+        top: -12px;
+        left: 40px;
+        right: 40px;
+        height: 12px;
+        background-image: 
+            radial-gradient(circle, rgba(255,255,255, 0.4) 20%, transparent 25%),
+            radial-gradient(circle, rgba(0,0,0, 0.1) 45%, transparent 50%);
+        background-size: 44px 44px;
+        background-repeat: repeat-x;
+    }
+    
+    .lego-brick.is-clickable {
+        cursor: pointer;
+        transition: transform 0.15s ease, filter 0.15s ease;
+    }
+    
+    .lego-brick.is-clickable:hover { filter: brightness(1.05); }
+    .lego-brick.is-clickable:active { transform: translateY(4px); }
+    .lego-brick.is-clickable:active::after { transform: translateY(-2px); }
+    
+    .lego-row {
+        display: flex;
+        flex-wrap: wrap; 
+        width: 100%;
+        gap: var(--gap, 20px);
+        align-items: stretch;
+        justify-content: flex-start;
+        margin-bottom: 40px;
+        box-sizing: border-box;
+    }
+
+    .lego-media-section {
+        width: 100%;
+    }
+    
+    .lego-media-element, .video-responsive {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        display: block;
+        background: #000;
+        object-fit: contain;
+    }
+    
+    .video-responsive {
+        position: relative;
+        aspect-ratio: 16 / 9;
+    }
+    
+    .video-responsive iframe {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        border: none;
+    }
+    
+    .lego-title {
+        font-family: "Arial Black", sans-serif;
+        font-size: clamp(32px, 5vw, 60px);
+        margin: 0 0 15px 0;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+    
+    .lego-body p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    .lego-brick .lego-title, 
+    .lego-brick .lego-body, 
+    .lego-brick .lego-body p {
+        color: white;
+        text-align: var(--lego-align, left);
+    }
+    
+    @media (min-width: 860px) {
+        .lego-brick.has-media {
+            flex-direction: row;
+            align-items: center;
+        }
+        .lego-brick.is-reversed { flex-direction: row-reverse; }
+        
+        .lego-media-section { 
+            flex: 0 0 var(--img-w, 50%); 
+            max-width: var(--img-w, 50%); 
+        }
+        .lego-content-section { flex: 1; }
+    }
+    </style>
