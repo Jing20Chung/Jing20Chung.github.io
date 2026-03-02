@@ -17,8 +17,53 @@ permalink: "/projects/in-the-end"
 ---
 {% include hero-video.html %}
 {% include project-styles.html %}
+{% include project-scripts.html %}
 {% include media-block-styles.html %}
 
+
+{% capture elastic_band_content %}
+I started developing this prototype during the summer, implementing the elastic band stretching effect through code. Since the haptic gloves hadn't arrived yet, I initially prototyped using the built-in haptics of Meta Quest controllers. Once the gloves arrived, thanks to the modular Haptic System I had established, I only needed to swap out the hardware interface layer—all the upper-level software implementation remained unchanged, allowing seamless transition to glove-based haptic playback.
+
+User feedback on this prototype was positive—players enjoyed the tension effect when stretching the elastic band. I designed the haptic feedback in three distinct phases: grabbing the band, stretching it, and the sharp 'snap' impact upon release. Testing confirmed that adding haptics increased user immersion, though the emotional impact wasn't particularly pronounced.
+{% endcapture %}
+
+{% capture slap_content %}
+This experiment explored impact-based haptics through balloon slapping. I implemented floaty balloon physics that reacted naturally to hits while maintaining upward drift. Users found the 'pop' satisfying and instinctively continued interacting.
+
+Our Sound Designer, Michaecle, added switchable audio—realistic vs. cartoon. The emotional shift was dramatic: cartoon sounds transformed the experience into something playful and laughter-inducing.
+
+While engaging, the haptic impact on emotion still needed strengthening.
+{% endcapture %}
+
+
+{% capture stroke_content %}
+In this interaction, I explored multiple dimensions:
+
+1. **Ray-cast detection**: Using ray-cast to detect contact points, so that individual fingertips trigger vibrations based on whether they are touching an object.
+2. **Dynamic intensity**: Weakening or strengthening haptic feedback based on finger distance to simulate light vs. firm strokes.
+3. **Indirect control**: Experimenting with how haptic feedback can serve as negative feedback.
+
+One of the core design challenges in VR is that virtual objects have no physical presence...
+
+## No Way to Stop the Hand
+You cannot physically prevent a user's hand from "passing through" an object. How to communicate to users what the "correct" action is, especially for something as nuanced as stroking, is a genuinely interesting topic.
+
+## Can Haptics Say "Wrong"?
+From the early exploration phase, we found that shock-like haptic sensations caused users to recoil and feel discomfort — though at that point, we had not yet investigated whether this discomfort would actually lead users to avoid such contact.
+This gave rise to an initial hypothesis: that an extremely intense haptic feedback could be used to convey a signal of "wrong" or erroneous behavior.
+
+## More Rock, Less Talk
+Based on this hypothesis, I designed an interaction in which, when a user touches the "interior" of an object (i.e., passes beyond its surface), the haptic feedback intensity increases sharply, prompting users to notice the discomfort and withdraw their hand.
+
+## What the Playtesters Taught Me
+After having playtesters try it, the results were not significant. Users did not interpret intense haptic feedback as an error signal, and the perceived intensity of the haptics varied considerably across age groups — for example, Playtester A found the vibration very strong, while Playtester B found it barely noticeable. This led me to understand that normalizing haptic feedback is inherently difficult, and that people's interpretation of haptics requires further research before it can reliably serve as a feedback guide.
+{% endcapture %}
+{% capture teleknesis_content %}
+This prototype explores how individuals conceptualize abstract phenomena. Our findings reveal that mental models vary significantly: some users envision subtle vibrations, while others imagine energy flowing from their fingertips to their wrists. This diversity highlights a key challenge in hand gesture prediction—since there is no universal 'standard' for telekinesis, users naturally employ a wide range of intuitive gestures. This experience underscored that for abstract, non-standardized mechanics (unlike the well-established 'magic wand' trope), continuous playtesting and behavioral analysis are indispensable.
+{% endcapture %}
+{% capture pinch_content %}
+How would you pinch your father?' This prototype investigates how social context and empathy reshape physical interactions with virtual entities. Beyond testing haptic feedback for the 'pinch' gesture, we examined how shifting the identity of a virtual character—assigned via dynamic text labels—altered user behavior. Our study revealed that users were reluctant to use a pinch gesture on figures of authority, such as a 'King,' preferring instead to support them in their palms. Furthermore, many participants expressed moral hesitation to pinch virtual humans altogether. These findings underscore that empathy and social hierarchy significantly dictate interaction paradigms, suggesting that context is essential for creating truly intuitive and culturally resonant XR experiences.
+{% endcapture %}
 <div class="project-content">
   {% include project-info.html %}
 
@@ -75,34 +120,101 @@ permalink: "/projects/in-the-end"
     scroll_height="1000px"  
     height="200px"
     reversed=false 
-    enable_scroll=true
+    enable_scroll=false
     width="100%"
     margin_bottom="100px"
   %}
+
+  <div class="lego-row">
 
   {% include lego-block.html 
     video="/assets/videos/projects/InTheEnd/elastic-band-haptic-visual.mp4" 
     title="Elastic Band" 
     color="green"
-    content="I started developing this prototype during the summer, implementing the elastic band stretching effect through code. Since the haptic gloves hadn't arrived yet, I initially prototyped using the built-in haptics of Meta Quest controllers. Once the gloves arrived, thanks to the modular Haptic System I had established, I only needed to swap out the hardware interface layer—all the upper-level software implementation remained unchanged, allowing seamless transition to glove-based haptic playback.<br><br>
-    User feedback on this prototype was positive—players enjoyed the tension effect when stretching the elastic band. I designed the haptic feedback in three distinct phases: grabbing the band, stretching it, and the sharp 'snap' impact upon release. Testing confirmed that adding haptics increased user immersion, though the emotional impact wasn't particularly pronounced." 
+    content=elastic_band_content
     reversed=true 
     img_width="50%"
     enable_scroll=false
+    enable_modal=true
     margin_bottom="50px"
+    width="49%"
   %}
+
+  {% include lego-block.html 
+    video="/assets/videos/projects/InTheEnd/stoke-1.mp4" 
+    title="Stroke"
+    content=stroke_content
+    reversed=false 
+    color="#6e0035"
+    img_width="50%"
+    enable_scroll=false
+    enable_modal=true
+    margin_bottom="50px"
+    width="48%"
+  %}
+
   {% include lego-block.html 
     video="/assets/videos/projects/InTheEnd/slap-haptic-visual.mp4" 
     title="Slap" 
-    content="This experiment explored impact-based haptics through balloon slapping. I implemented floaty balloon physics that reacted naturally to hits while maintaining upward drift. Users found the 'pop' satisfying and instinctively continued interacting.<br><br>Our Sound Designer, Michaecle, added switchable audio—realistic vs. cartoon. The emotional shift was dramatic: cartoon sounds transformed the experience into something playful and laughter-inducing.<br><br>While engaging, the haptic impact on emotion still needed strengthening." 
+    content=slap_content
     reversed=false 
     color="#ce5200"
-    img_width="50%"
+    img_width="60%"
     enable_scroll=false
+    enable_modal=true
     margin_bottom="50px"
+    width="40%"
   %}
 
+  {% include lego-block.html 
+    video="/assets/videos/projects/InTheEnd/teleknesis.mp4" 
+    title="Teleknisis" 
+    content=teleknesis_content
+    reversed=true 
+    color="#1d60f0"
+    img_width="45%"
+    enable_scroll=false
+    enable_modal=true
+    margin_bottom="50px"
+    width="58%"
+  %}
+
+  {% include lego-block.html 
+    video="/assets/videos/projects/InTheEnd/pinch-1.mp4" 
+    title="Pinch" 
+    content=pinch_content
+    reversed=true 
+    color="#006ba0"
+    img_width="50%"
+    enable_scroll=false
+    enable_modal=true
+    margin_bottom="50px"
+    width="48%"
+  %}
+  </div>
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- 
   {% include media-block.html 
     image="assets/images/projects/InTheEnd/tactGloveDK2.png" 

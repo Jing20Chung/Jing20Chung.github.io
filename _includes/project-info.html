@@ -55,38 +55,3 @@
         </div>
     </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const stickyContainers = document.querySelectorAll('.sticky-container');
-    const observerOptions = {
-        root: null,
-        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            const block = entry.target.querySelector('.sticky-block');
-            if (!block) return;
-
-            const isTopExiting = entry.boundingClientRect.top < 0;
-
-            if (entry.isIntersecting) {
-                if (isTopExiting && entry.intersectionRatio < 0.6) {
-                    block.classList.add('fade-out');
-                    block.classList.remove('fade-in');
-                } 
-                else if (entry.intersectionRatio > 0.4) {
-                    block.classList.add('fade-in');
-                    block.classList.remove('fade-out');
-                }
-            } else {
-                block.classList.add('fade-out');
-                block.classList.remove('fade-in');
-            }
-        });
-    }, observerOptions);
-    
-    stickyContainers.forEach(container => observer.observe(container));
-});
-</script>
