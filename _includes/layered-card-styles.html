@@ -1,0 +1,69 @@
+<style>
+.layered-card {
+  background-color: #002D8E;
+  color: white;
+  margin: 200px 0;
+  padding: 60px 80px;
+  border-radius: 40px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  animation: pulseShadow 2s infinite;
+}
+
+.layered-card h3 {
+  color: white;
+  text-align: center;
+}
+
+.layered-card p {
+  color: white;
+  text-align: left;
+}
+
+.card-label {
+  position: absolute; 
+  top: 30px;
+  left: 40px;
+  
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes pulseShadow {
+  0% { box-shadow: 0 0 0 30px #2A4DBA, 0 0 0 60px #5074E0; }
+  50% { box-shadow: 0 0 0 35px #2A4DBA, 0 0 0 70px rgba(80, 116, 224, 0.7); }
+  100% { box-shadow: 0 0 0 30px #2A4DBA, 0 0 0 60px #5074E0; }
+}
+
+@media (max-width: 600px) {
+  .layered-card {
+    margin: 200px 0;
+    padding: 20px 30px;
+    border-radius: 40px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    animation: pulseShadow 2s infinite;
+  }
+  .layered-card h3 {
+    font-size: clamp(24px, 5vw, 42px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .layered-card p {
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.6;
+  }
+
+  .card-label {
+    top: 20px;
+    left: 20px;
+    font-size: 14px;
+  }
+}
+
+</style>

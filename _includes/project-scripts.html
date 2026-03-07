@@ -1,10 +1,10 @@
 <script>
-    function openLegoModal(id) {
+    function openModal(id) {
         document.getElementById(id).classList.add('is-active');
         document.body.style.overflow = 'hidden';
     }
 
-    function closeLegoModal(id) {
+    function closeModal(id) {
         document.getElementById(id).classList.remove('is-active');
         document.body.style.overflow = '';
     }
@@ -41,9 +41,8 @@
         }, observerOptions);
         
         stickyContainers.forEach(container => scrollObserver.observe(container));
-    
-        // === 2. Lego Modal pop up screen ===
-        window.openLegoModal = function(id) {
+
+        window.openModal = function(id) {
             const modal = document.getElementById(id);
             if (modal) {
                 modal.classList.add('is-active');
@@ -51,18 +50,26 @@
             }
         };
     
-        window.closeLegoModal = function(id) {
+        window.closeModal = function(id) {
             const modal = document.getElementById(id);
             if (modal) {
                 modal.classList.remove('is-active');
                 document.body.style.overflow = 'auto';
             }
-        };
-    
+        };  
+
         document.addEventListener('keydown', (e) => {
             if (e.key === "Escape") {
                 document.querySelectorAll('.lego-modal-overlay.is-active').forEach(m => {
                     window.closeLegoModal(m.id);
+                });
+            }
+        });
+    
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+                document.querySelectorAll('.modal-overlay.is-active').forEach(m => {
+                    window.closeModal(m.id);
                 });
             }
         });

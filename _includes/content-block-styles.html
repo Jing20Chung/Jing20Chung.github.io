@@ -1,0 +1,260 @@
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .sticky-container {
+        height: var(--scroll-h, 800px);
+        position: relative;
+    }
+    
+    .sticky-block {
+        position: sticky;
+        top: 15%;
+        opacity: 0;
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    
+    .sticky-block.fade-in { opacity: 1; transform: translateY(0); }
+    .sticky-block.fade-out { opacity: 0; transform: translateY(-20px); }
+    
+
+    .content-container {
+        padding: 10px;
+        width: 100%;
+        margin-bottom: var(--margin-bottom, 40px);
+    }
+
+    .content-container.sticky-container {
+        display: block;
+        height: var(--scroll-h, 800px);
+        position: relative;
+        width: 100%;
+    }
+    
+    .content-wrapper {
+        width: 100%;
+        transform: translateX(clamp(-20vw, var(--offset-left, 0), 20vw));
+        transition: transform 0.4s ease;
+    }
+
+    .content-wrapper.sticky-block {
+        width: var(--block-w, 100%);
+        height: var(--scroll-h, 800px);
+    }
+    
+    .content-link-wrapper {
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        color: inherit;
+    }
+
+    .content-block {
+        width: 100%;
+        border-radius: 24px;
+        background: var(--block-color);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .content-block.has-shadow {
+        padding: 30px;
+        box-shadow:
+            inset 5px 5px 0 rgba(255,255,255,0.3),
+            inset -5px -5px 0 rgba(0,0,0,0.2),
+            0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .content-block.is-clickable {
+        cursor: pointer;
+        transition: transform 0.15s ease, filter 0.15s ease;
+    }
+ 
+    .content-block.is-clickable:hover { filter: brightness(1.05); }
+    .content-block.is-clickable:active { transform: translateY(4px); }
+    .content-block.is-clickable:active::after { transform: translateY(-2px); }
+
+    .content-media-section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 var(--img-w, 50%);
+    }
+    
+    .content-media-section, .video-responsive {
+        width: 100%;
+        border-radius: 12px;
+    }
+    
+    .video-responsive {
+        width: var(--img-w, 100%); 
+        max-width: 100%;
+        margin: 0 auto; 
+        position: relative;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    
+    .video-responsive iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .layout-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        gap: var(--gap, 20px);
+        margin-bottom: 40px;
+    }
+
+    .layout-row .content-container {
+        flex: 0 0 var(--block-w, 100%);
+        max-width: var(--block-w, 100%);
+        height: var(--block-h, auto);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .layout-row .content-container .content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .layout-row .content-container .content-block {
+        flex: 1;
+    }
+
+    .content-body p {
+        font-family: "Inter", sans-serif;
+        font-size: var(--text-size, 1rem);
+        line-height: 1.6;
+    }
+
+    .content-title {
+        font-family: "Inter", sans-serif;
+        font-size: var(--title-size, clamp(32px, 1.1rem, 60px));
+        margin: 0 0 15px 0;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+        text-align: center;
+    }
+
+    .modal-window .content-title {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(32px, 5vw, 60px);
+        margin: 0 0 15px 0;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
+        text-align: center;
+        color:white;
+        border-bottom: none;
+    }
+
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .modal-overlay.is-active { display: flex; }
+
+    .modal-bg {
+        position: absolute;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
+    }
+
+    .modal-window {
+        overscroll-behavior: contain;
+        position: relative;
+        background-color: var(--block-color);
+        width: 100%;
+        max-width: 900px;
+        max-height: 90vh;
+        border-radius: 32px;
+        z-index: 10000;
+        overflow-y: auto;
+        padding: 50px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        animation: windowPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes windowPop {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 20px; right: 25px;
+        font-size: 40px; color: white;
+        background: none; border: none; cursor: pointer;
+        z-index: 10001;
+    }
+
+    .modal-body, .modal-body p, .modal-body li {
+        color: white;
+    }
+    
+    .content-block .content-title, 
+    .content-block .content-body, 
+    .content-block .content-body p,
+    .modal-window .content-body p {
+        color: rgb(0, 0, 0);
+        text-align: var(--content-align, left);
+    }
+
+    @media (min-width: 860px) {
+        .content-block.has-media {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-block.is-reversed {
+            flex-direction: row-reverse;
+        }
+
+        .content-media-section {
+            flex: 0 0 var(--img-w, 50%);
+            max-width: var(--img-w, 50%);
+        }
+
+        .content-section {
+            flex: 1;
+        }
+    }
+
+    @media (max-width: 859px) {
+
+        .content-wrapper {
+            width: 100% !important;
+            transform: none !important;
+        }
+
+        .layout-row {
+            flex-direction: column;
+        }
+
+        .layout-row .content-container {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+</style>

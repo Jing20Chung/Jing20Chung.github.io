@@ -1,0 +1,61 @@
+{% assign _vid = nil %}
+{% assign _yt = nil %}
+{% assign _img = nil %}
+{% assign has_shadow = false %}
+{% assign has_media = false %}
+{% assign final_color = nil %}
+{% assign modal_id = include.title | slugify | prepend: "modal-icon-" %}
+
+{% if include.video and include.video != "" %}{% assign _vid = include.video %}{% endif %}
+{% if include.youtube_id and include.youtube_id != "" %}{% assign _yt = include.youtube_id %}{% endif %}
+{% if include.image and include.image != "" %}{% assign _img = include.image %}{% endif %}
+{% if include.has_shadow %}{% assign has_shadow = true %}{% endif %}
+{% if _vid or _yt or _img %}{% assign has_media = true %}{% endif %}
+
+{% assign final_color = include.color | default: '#ffffff' %}
+
+<div class="icon-item" {% if include.enable_modal %}onclick="openModal('{{ modal_id }}', event)"{% endif %}>
+    <div class="icon-box {% if has_shadow %}has-shadow{% endif %}">
+        {% if has_media %}
+            {% if _yt %}
+                <div class="video-responsive mini">
+                    <iframe src="https://www.youtube.com/embed/{{ _yt }}?rel=0&controls=0&autoplay=1&mute=1&loop=1&playlist={{ _yt }}" frameborder="0"></iframe>
+                </div>
+            {% elsif _vid %}
+                <video autoplay loop muted playsinline class="icon-media-element">
+                    <source src="{{ _vid | relative_url }}" type="video/mp4">
+                </video>
+            {% elsif _img %}
+                <img src="{{ _img | relative_url }}" class="icon-media-element" alt="{{ include.title }}">
+            {% endif %}
+        {% endif %}
+    </div>
+    
+    <span class="icon-label">{{ include.title }}</span>
+</div>
+
+{% if include.enable_modal %}
+<div id="{{ modal_id }}" class="modal-overlay">
+    <div class="modal-window" style="--block-color: {{ final_color }};">
+        <button class="modal-close" onclick="closeModal('{{ modal_id }}')">&times;</button>
+        <div class="modal-content">
+            <h2 class="content-title">{{ include.title }}</h2>
+            
+            <div class="content-modal-media">
+                {% if _yt %}
+                    <div class="video-responsive"><iframe src="https://www.youtube.com/embed/{{ _yt }}?rel=0" frameborder="0" allowfullscreen></iframe></div>
+                {% elsif _vid %}
+                    <video controls class="content-media-element"><source src="{{ _vid | relative_url }}"></video>
+                {% elsif _img %}
+                    <img src="{{ _img | relative_url }}" class="content-media-element">
+                {% endif %}
+            </div>
+
+            <div class="modal-body content-body">
+                {{ include.content | markdownify }}
+            </div>
+        </div>
+    </div>
+    <div class="modal-bg" onclick="closeModal('{{ modal_id }}')"></div>
+</div>
+{% endif %}
