@@ -31,6 +31,7 @@ url: "https://jingchung.github.io" # the base hostname & protocol for your site,
 github_username:  jing20chung
 
 # Build settings
+# theme: minimal-mistakes-jekyll
 remote_theme: "mmistakes/minimal-mistakes@4.28.0"
 plugins:
   - jekyll-feed
