@@ -106,7 +106,7 @@ permalink: /projects/
       <div class="project-card">
         <div class="project-image-wrapper">
           {% if project.image %}
-            <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image">
+            <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" class="project-image">
           {% else %}
             <span>No image</span>
           {% endif %}

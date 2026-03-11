@@ -20,8 +20,7 @@ role:
   - Technical Designer
   - Technical Artist
   - Game Play Programmer
-video: "/assets/videos/projects/InTheEnd/in-the-end-hero.mp4"
-permalink: "/projects/in-the-end"
+video: "/assets/videos/projects/InTheEnd/hero.mp4"
 ---
 {% include hero-video.html %}
 {% include project-styles.html %}
