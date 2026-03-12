@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About Me
+title: About
 permalink: /about/
 ---
 
@@ -73,6 +73,6 @@ permalink: /about/
   </div>
   
   <div class="about-image">
-    <img src={{"/assets/images/about/me.jpg"| relative_url }} alt="About Me">
+    <img src="{{ '/assets/images/about/me.jpg' | relative_url }}" alt="About Me">
   </div>
 </div>
