@@ -102,7 +102,7 @@ permalink: /projects/
 <div class="projects-gallery">
   
   {% for project in sorted_projects %}
-    <a href="{{ project.url }}" class="project-card-link">
+    <a href="{{ project.url | relative_url }}" class="project-card-link">
       <div class="project-card">
         <div class="project-image-wrapper">
           {% if project.image %}
