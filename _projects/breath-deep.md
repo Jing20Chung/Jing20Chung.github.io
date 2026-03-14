@@ -11,7 +11,7 @@ contribution:
 role:
   - Technical Designer
   - Programmer
-video: "/assets/videos/projects/breath-deep/BreathDeepTitle.mp4"
+video: "https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/breath-deep/BreathDeepTitle.mp4"
 ---
 {% include hero-video.html %}
 {% include project-styles.html %}

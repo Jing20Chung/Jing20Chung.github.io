@@ -42,8 +42,14 @@
                     </div>
                 {% elsif _vid %}
                     <video autoplay loop muted playsinline class="content-media-element">
-                        <source src="{{ _vid | relative_url }}" type="video/mp4">
-                        <source src="{{ _vid | relative_url }}" type="video/quicktime">
+                        {% if _vid contains "http" %}
+                            <source src="{{ _vid }}" type="video/mp4">
+                            <source src="{{ _vid }}" type="video/quicktime">
+                        {% else %}
+                            <source src="{{ _vid | relative_url }}" type="video/mp4">
+                            <source src="{{ _vid | relative_url }}" type="video/quicktime">
+                        {% endif %}   
+                        
                     </video>
                 {% elsif _img %}
                     <img src="{{ _img | relative_url }}" class="content-media-element">
@@ -75,7 +81,13 @@
                 {% if _yt %}
                     <div class="video-responsive"><iframe src="https://www.youtube.com/embed/{{ _yt }}?rel=0" frameborder="0" allowfullscreen></iframe></div>
                 {% elsif _vid %}
-                    <video controls class="content-media-element"><source src="{{ _vid | relative_url }}"></video>
+                    <video controls class="content-media-element">
+                        {% if _vid contains "http" %}
+                            <source src="{{ _vid }}" type="video/quicktime">
+                        {% else %}
+                            <source src="{{ _vid | relative_url }}">
+                        {% endif %} 
+                    </video>
                 {% elsif _img %}
                     <img src="{{ _img | relative_url }}" class="content-media-element">
                 {% endif %}

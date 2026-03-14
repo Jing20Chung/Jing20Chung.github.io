@@ -21,7 +21,7 @@ role:
   - Technical Designer
   - Programmer
 timeline: Jan 2025 - May 2025 (14 weeks)
-video: "/assets/videos/projects/xhaler/Xhaler-Trailer.mp4"
+video: "https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/xhaler/Xhaler-Trailer.mp4"
 ---
 {% include hero-video.html %}
 {% include project-styles.html %}

@@ -20,7 +20,7 @@ role:
   - Technical Designer
   - Technical Artist
   - Game Play Programmer
-video: "/assets/videos/projects/InTheEnd/hero.mp4"
+video: "https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/hero.mp4"
 ---
 {% include hero-video.html %}
 {% include project-styles.html %}
@@ -179,7 +179,7 @@ Taking a bottom-up approach, we began by experimenting with fundamental haptic p
   <div class="icon-grid-bg">
     <div class="icon-grid-container">
       {% include feature-grid-item.html 
-        video="/assets/videos/projects/InTheEnd/elastic-band-haptic-visual.mp4" 
+        video="https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/elastic-band-haptic-visual.mp4" 
         color="green"
         title="Elastic Band"
         content=elastic_band_content
@@ -190,7 +190,7 @@ Taking a bottom-up approach, we began by experimenting with fundamental haptic p
         width="100%"
     %}
     {% include feature-grid-item.html 
-      video="/assets/videos/projects/InTheEnd/stoke-1.mp4" 
+      video="https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/stoke-1.mp4" 
       title="Stroke"
       content=stroke_content
       reversed=false 
@@ -201,7 +201,7 @@ Taking a bottom-up approach, we began by experimenting with fundamental haptic p
       width="100%"
     %}
     {% include feature-grid-item.html 
-      video="/assets/videos/projects/InTheEnd/slap-haptic-visual.mp4" 
+      video="https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/slap-haptic-visual.mp4" 
       title="Slap"
       content=slap_content
       reversed=false 
@@ -212,7 +212,7 @@ Taking a bottom-up approach, we began by experimenting with fundamental haptic p
       width="100%"
     %}
     {% include feature-grid-item.html 
-      video="/assets/videos/projects/InTheEnd/rain2.mp4" 
+      video="https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/rain2.mp4" 
       title="Rain"
       content=rain_content
       reversed=true 
@@ -228,7 +228,7 @@ Taking a bottom-up approach, we began by experimenting with fundamental haptic p
   <div class="icon-grid-bg">
     <div class="icon-grid-container">
       {% include feature-grid-item.html 
-        video="/assets/videos/projects/InTheEnd/teleknesis.mp4" 
+        video="https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/teleknesis.mp4" 
         title="Telekinesis"
         content=teleknesis_content
         reversed=true 
@@ -240,7 +240,7 @@ Taking a bottom-up approach, we began by experimenting with fundamental haptic p
       %}
 
       {% include feature-grid-item.html 
-        video="/assets/videos/projects/InTheEnd/pinch-1.mp4" 
+        video="https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/pinch-1.mp4" 
         title="Pinch"
         content=pinch_content
         reversed=true 
@@ -252,7 +252,7 @@ Taking a bottom-up approach, we began by experimenting with fundamental haptic p
       %}
 
       {% include feature-grid-item.html 
-        video="/assets/videos/projects/InTheEnd/heartbeat-1.mp4" 
+        video="https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/heartbeat-1.mp4" 
         title="Heartbeat"
         content=heartbeat_content
         reversed=true 
@@ -264,7 +264,7 @@ Taking a bottom-up approach, we began by experimenting with fundamental haptic p
       %}
 
       {% include feature-grid-item.html 
-        video="/assets/videos/projects/InTheEnd/crush-1.mp4" 
+        video="https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/crush-1.mp4" 
         title="Crush"
         content=crush_content
         reversed=true 
