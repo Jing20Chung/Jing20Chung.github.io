@@ -27,13 +27,13 @@
                     </div>
                 {% elsif _vid %}
                     <div class="media-element-wrapper">
-                        <video autoplay loop muted playsinline class="media-element">
+                        <video autoplay loop muted playsinline class="lego-media-element">
                             <source src="{{ _vid | relative_url }}" type="video/mp4">
                         </video>
                     </div>
                 {% else %}
                     {% if _link %}<a href="{{ _link | relative_url }}" {% if include.external %}target="_blank" rel="noopener"{% endif %}>{% endif %}
-                        <img src="{{ _img | relative_url }}" alt="{{ include.title }}" class="media-element">
+                        <img src="{{ _img | relative_url }}" alt="{{ include.title }}" class="lego-media-element">
                     {% if _link %}</a>{% endif %}
                 {% endif %}
             </div>

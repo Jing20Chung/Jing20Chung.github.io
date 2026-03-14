@@ -81,15 +81,15 @@
                 {% if _yt %}
                     <div class="video-responsive"><iframe src="https://www.youtube.com/embed/{{ _yt }}?rel=0" frameborder="0" allowfullscreen></iframe></div>
                 {% elsif _vid %}
-                    <video controls class="content-media-element">
+                    <video controls class="content-media-section">
                         {% if _vid contains "http" %}
-                            <source src="{{ _vid }}" type="video/quicktime">
+                            <source src="{{ _vid }}" type="video/mp4">
                         {% else %}
                             <source src="{{ _vid | relative_url }}">
                         {% endif %} 
                     </video>
                 {% elsif _img %}
-                    <img src="{{ _img | relative_url }}" class="content-media-element">
+                    <img src="{{ _img | relative_url }}" class="content-media-section">
                 {% endif %}
             </div>
             <div class="modal-body content-body">
