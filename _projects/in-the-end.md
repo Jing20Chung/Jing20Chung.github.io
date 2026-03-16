@@ -325,7 +325,7 @@ With the beating heart as the only animated element, the design intuitively sign
         img_width="20%"
         content=dd_03
         reversed=true
-        image="assets/images/projects/InTheEnd/Heart.png"
+        image="assets/images/projects/InTheEnd/heart.png"
       %}
     </div>
   </div>
