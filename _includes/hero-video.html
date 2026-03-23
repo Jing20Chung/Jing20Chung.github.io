@@ -22,4 +22,11 @@
     }
   });
 </script>
+{% elsif page.image_hero %}
+<div class="image-hero">
+    <img src="{{ page.image_hero | relative_url }}"></img>
+  <div class="video-hero-overlay">
+    <h1 class="video-hero-title">{{ page.title }}</h1>
+  </div>
+</div>
 {% endif %}

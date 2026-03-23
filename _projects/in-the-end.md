@@ -20,7 +20,8 @@ role:
   - Technical Designer
   - Technical Artist
   - Game Play Programmer
-video: "https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/hero.mp4"
+video: "https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/InTheEnd/NewHero.mp4"
+trialer_video: "https://www.youtube.com/embed/2rqZcUrE96o?si=hanS_SeypavgBT40"
 ---
 {% include hero-video.html %}
 {% include project-styles.html %}
@@ -352,14 +353,7 @@ With the beating heart as the only animated element, the design intuitively sign
     </div>
 
   </div>
-  <div class="project-section" style="background-color: #ffffff; margin: 200px 0;"> 
-    <div class="content-wrapper-80" style="display: flex; flex-direction: column; align-items: center;">
-      <h3>What does it feel like in the end?</h3>
-      <div class="video-responsive" style="width: 80%;">
-          <iframe src="https://www.youtube.com/embed/gU48gWbiNd4?rel=0" frameborder="10" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+  
 
 {% capture future_01 %}
 Sense Memory gives Haptics meaning, and that meaning can in turn evoke emotion. Some highly recognizable Haptics — such as a heartbeat — can be identified on their own and interpreted through Sense Memory, naturally carrying emotional weight.
@@ -385,11 +379,6 @@ Humans are multi-sensory beings, and the experiences we form are typically the r
       <h4>Future Work</h4>
       <h3>The possible tools in the future</h3>
       <p>After a semester of exploration, we arrived at several key takeaways:</p>
-      {% include content-block.html 
-        img_width="80%"
-        left_offset="10%"
-        image="assets/images/projects/InTheEnd/HapticDiagram.png"
-      %}
       {% include content-block.html 
         has_shadow=true
         title="Sense Memory is the source through which Haptics trigger emotion."

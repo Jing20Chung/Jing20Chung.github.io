@@ -25,7 +25,8 @@
             --content-align: {{ include.text_align | default: 'left' }};
             --img-w: {{ include.img_width | default: '50%' }};
             --text-size: {{ include.text_size}};
-            --title-size: {{ include.title_size}};">
+            --title-size: {{ include.title_size}};
+            --margin-bottom: {{include.margin_bottom | default: '0px'}}">
     
     <div class="content-wrapper {% if include.enable_scroll %}sticky-block{% endif %}">    
         
@@ -81,15 +82,15 @@
                 {% if _yt %}
                     <div class="video-responsive"><iframe src="https://www.youtube.com/embed/{{ _yt }}?rel=0" frameborder="0" allowfullscreen></iframe></div>
                 {% elsif _vid %}
-                    <video controls class="content-media-section">
+                    <video controls class="content-media-element">
                         {% if _vid contains "http" %}
-                            <source src="{{ _vid }}" type="video/mp4">
+                            <source src="{{ _vid }}" type="video/quicktime">
                         {% else %}
                             <source src="{{ _vid | relative_url }}">
                         {% endif %} 
                     </video>
                 {% elsif _img %}
-                    <img src="{{ _img | relative_url }}" class="content-media-section">
+                    <img src="{{ _img | relative_url }}" class="content-media-element">
                 {% endif %}
             </div>
             <div class="modal-body content-body">
