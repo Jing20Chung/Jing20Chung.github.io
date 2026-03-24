@@ -103,9 +103,9 @@
 	}
 
   .project-info .sticky-container {
-    padding: 50px 0px;
+    padding: 10px 0px;
     height: auto;           
-    min-height: 200px;      
+    min-height: 0;      
     margin-bottom: 20px;
   }
 
@@ -131,9 +131,12 @@
 
   .project-info .sticky-container .sticky-block {
       position: sticky;
-      opacity: 0;
+      opacity: 1;
+      transform: none;
+      transition: none;
+      /* opacity: 0;
       transform: translateY(0px);
-      transition: opacity 0.3s ease-in, transform 0.3s ease-out;
+      transition: opacity 0.3s ease-in, transform 0.3s ease-out; */
       width: 100%;
       top: 20%; /* The distance from the top of the viewport where it will stick */
   }

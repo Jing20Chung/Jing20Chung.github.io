@@ -59,13 +59,10 @@ permalink: /about/
   <div class="about-text">
     <h2>Hi! I'm a VR enthusiast, basketball player, and cat lover.</h2>
     <p>
-      My journey began with a basketball tactics training system in VR, sparking my passion for creating experiences that blend the physical and virtual. Since then, I've explored diverse approaches to immersion:
+      I am a VR/XR engineer with a background that cuts across hardware and experience design. Before coming to games, I spent four years as a Principal Firmware Engineer in Taiwan, building real expertise in the system layer from driver behavior to hardware timing. I left that career behind to pursue the question that had been pulling at me for years: what can VR become when the body is fully part of the experience?
     </p>
     <p>
-      Go!KartVR paired motion chair feedback with kart racing gameplay for physical sensation. Monkeying Around broke physical space limitations by letting players climb as a toy monkey searching for family. In The End used haptic gloves to create an emotionally resonant storytelling experience centered on human connection. Xhaler transformed breathing into a game mechanic using a respiration belt and wind sensors for intuitive, body-driven gameplay.
-    </p>
-    <p>
-      Each project reflects my core interest: finding new ways for players to feel truly present in virtual worlds.
+      Since arriving at Carnegie Mellon's Entertainment Technology Center, that question has driven every project I have taken on. I have built a breath-controlled VR experience, originated and led a haptic-glove narrative piece exploring whether physical sensation can carry emotional weight, and designed a mixed reality system that turns real physical objects into interactive elements. Across all of it, I keep returning to the same intersection: immersive technology and non-traditional input. My firmware foundation lets me work close to the hardware, and my time at ETC sharpened my instinct to ask the right question before reaching for a solution. I build systems that serve experiences, and I am always asking whether they do.
     </p>
     <p>
       When I'm not developing, you'll find me experimenting in the kitchen, on the basketball court setting up the perfect pass, or hanging out with cats.

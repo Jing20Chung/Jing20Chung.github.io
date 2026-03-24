@@ -23,6 +23,7 @@ role:
   - Programmer
 timeline: Jan 2025 - May 2025 (14 weeks)
 video: "https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/xhaler/TrailerCompressed.mp4"
+trialer_video: "https://www.youtube.com/embed/fUHDFnX35RE?si=zJSbzG5uehWPiTsR"
 ---
 {% include hero-video.html %}
 {% include project-styles.html %}

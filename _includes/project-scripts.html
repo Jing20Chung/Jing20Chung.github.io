@@ -11,36 +11,36 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         // === 1. Sticky scroll fade in and fade out control ===
-        const stickyContainers = document.querySelectorAll('.sticky-container');
-        const observerOptions = {
-            root: null,
-            threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
-        };
+        // const stickyContainers = document.querySelectorAll('.sticky-container');
+        // const observerOptions = {
+        //     root: null,
+        //     threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
+        // };
         
-        const scrollObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                const block = entry.target.querySelector('.sticky-block');
-                if (!block) return;
+        // const scrollObserver = new IntersectionObserver(function(entries) {
+        //     entries.forEach(entry => {
+        //         const block = entry.target.querySelector('.sticky-block');
+        //         if (!block) return;
     
-                const isTopExiting = entry.boundingClientRect.top < 0;
+        //         const isTopExiting = entry.boundingClientRect.top < 0;
     
-                if (entry.isIntersecting) {
-                    if (isTopExiting && entry.intersectionRatio < 0.6) {
-                        block.classList.add('fade-out');
-                        block.classList.remove('fade-in');
-                    } 
-                    else if (entry.intersectionRatio > 0.4) {
-                        block.classList.add('fade-in');
-                        block.classList.remove('fade-out');
-                    }
-                } else {
-                    block.classList.add('fade-out');
-                    block.classList.remove('fade-in');
-                }
-            });
-        }, observerOptions);
+        //         if (entry.isIntersecting) {
+        //             if (isTopExiting && entry.intersectionRatio < 0.6) {
+        //                 block.classList.add('fade-out');
+        //                 block.classList.remove('fade-in');
+        //             } 
+        //             else if (entry.intersectionRatio > 0.4) {
+        //                 block.classList.add('fade-in');
+        //                 block.classList.remove('fade-out');
+        //             }
+        //         } else {
+        //             block.classList.add('fade-out');
+        //             block.classList.remove('fade-in');
+        //         }
+        //     });
+        // }, observerOptions);
         
-        stickyContainers.forEach(container => scrollObserver.observe(container));
+        // stickyContainers.forEach(container => scrollObserver.observe(container));
 
         window.openModal = function(id) {
             const modal = document.getElementById(id);
