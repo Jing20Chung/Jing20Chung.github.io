@@ -27,17 +27,19 @@ trialer_video: "https://www.youtube.com/embed/Qp9gI5iN9wY?si=yqpsjCnrmWcL4n5_"
 
 
 {% capture contribution %}
-**Architecture & Game Flow**
-- Designed an event-driven architecture using ScriptableObjects to manage game state
-- Implemented win/lose conditions and replay logic
+**Systems Architecture**
+- Designed event-driven architecture with ScriptableObjects
+- Implemented win/lose/replay logic
 
-**Gameplay Mechanics**
-- Built raycast-based collision detection and dynamic pitfall activation
-- Developed randomized portal teleportation and countdown timer systems
-- Created collectible spawn and identification systems with player-specific effects
+**Core Gameplay**
+- Raycast-based collision detection
+- Randomized portal teleportation
+- Countdown timer
+- Collectible spawn and identification systems with player-specific effects
+- Dynamic pitfall activation
 
-**Visual Effects**
-- Integrated event-triggered animation transitions tied to game state changes
+**Polish & Feedback**
+- Integrated event-triggered animation transitions
 {% endcapture %}
 
 <div class="project-content">

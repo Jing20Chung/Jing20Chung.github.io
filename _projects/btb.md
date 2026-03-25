@@ -3,7 +3,7 @@ layout: default
 title: "Basketball Tactic Training System"
 date: 2017-07-07
 image: "assets/images/projects/basketball-tactic-training-system/defender_mode_3PP.PNG"
-description_title: "Build using Unreal Engine 4"
+description_title: "VR-BTB — Immersive Basketball Tactic Training"
 description: "The Basketball Tactic Training System offers an immersive VR training experience, accelerating players' familiarity with basketball tactics. The system is designed to generate real-time 3D simulations by seamlessly converting 2D tactical data from a digital tablet into a dynamic 3D environment.This tactical information is sent to the VR system via socket, creating an immersive experience in virtual reality."
 team: 
   - 1 Programmer
