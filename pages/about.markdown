@@ -53,6 +53,56 @@ permalink: /about/
       gap: 30px;
     }
   }
+
+  .pdf-preview-container {
+    width: 80%;
+    margin: 40px auto;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+
+  .pdf-wrapper {
+    position: relative;
+    width: 100%; 
+    padding-top: 141.42%;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .pdf-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .download-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #2a7ae2;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .download-link:hover {
+    text-decoration: underline;
+  }
+  .pdf-full-width {
+    grid-column: 1 / span 2;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .pdf-full-width {
+      grid-column: 1;
+    }
+  }
 </style>
 
 <div class="about-container">
@@ -68,8 +118,19 @@ permalink: /about/
       When I'm not developing, you'll find me experimenting in the kitchen, on the basketball court setting up the perfect pass, or hanging out with cats.
     </p>
   </div>
-  
   <div class="about-image">
     <img src="{{ '/assets/images/about/me.jpg' | relative_url }}" alt="About Me">
   </div>
+</div>
+<div class="pdf-preview-container">
+  <h3 style="margin-top: 0;">Resume</h3>
+  <div class="pdf-wrapper">
+    <iframe src="{{ 'assets/pdfs/Ming-Fen_Jing_Chung_Resume.pdf' | relative_url }}">
+      This browser does not support PDF previews. Please 
+      <a href="{{ 'assets/pdfs/Ming-Fen_Jing_Chung_Resume.pdf' | relative_url }}">click here to download the PDF</a>.
+    </iframe>
+  </div>
+  <a href="{{ 'assets/pdfs/Ming-Fen_Jing_Chung_Resume.pdf' | relative_url }}" class="download-link" target="_blank">
+    <i class="fas fa-external-link-alt"></i> Open in New Window / Download Full Version
+  </a>
 </div>
