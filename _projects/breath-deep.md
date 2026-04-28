@@ -16,7 +16,7 @@ team:
   - 1 Producer
 role:
   - Gameplay Systems Programmer
-timeline: 26 Jan - 1 Feb 2026 (48 hours)
+timeline: 24 Jan - 26 Jan 2025 (48 hours)
 video: "https://pub-ff65b495204a4a92b2eb66af1e701a7e.r2.dev/projects/breath-deep/BreathDeepTitle.mp4"
 trialer_video: "https://www.youtube.com/embed/Qp9gI5iN9wY?si=yqpsjCnrmWcL4n5_"
 ---

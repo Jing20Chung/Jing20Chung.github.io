@@ -64,7 +64,7 @@ permalink: /about/
   .pdf-wrapper {
     position: relative;
     width: 100%; 
-    padding-top: 141.42%;
+    padding-top: 100%;
     background: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 4px;
